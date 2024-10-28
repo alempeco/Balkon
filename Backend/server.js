@@ -36,11 +36,11 @@ const swaggerOptions = {
         },
         servers: [
             {
-                url: `http://localhost:${port}` // URL vašeg API-a
+                url: `http://localhost:${port}` 
             },
         ],
     },
-    apis: ["server.js"], // Putanja do vaših ruta (promijenite ako je potrebno)
+    apis: ["server.js"], 
 };
 
 // CRUD za books
