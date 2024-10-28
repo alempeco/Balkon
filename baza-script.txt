@@ -1,0 +1,46 @@
+-- Kreiranje baze podataka
+CREATE DATABASE Balkon;
+USE Balkon;
+
+-- Kreiranje tabele authors
+CREATE TABLE authors (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    firstName VARCHAR(100) NOT NULL,
+    lastName VARCHAR(100) NOT NULL,
+    dob DATE,
+    image VARCHAR(255)
+);
+
+-- Kreiranje tabele books
+CREATE TABLE books (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    isbn NVARCHAR(13) UNIQUE NOT NULL,
+    title NVARCHAR(255) NOT NULL,
+    pages INT,
+    published INT,  -- Ovde čuvamo godinu kao INT
+    image NVARCHAR(255)
+);
+
+-- Kreiranje tabele books_authors
+CREATE TABLE books_authors (
+    book_id INT,
+    author_id INT,
+    PRIMARY KEY (book_id, author_id),
+    FOREIGN KEY (book_id) REFERENCES books(id),
+    FOREIGN KEY (author_id) REFERENCES authors(id)
+);
+
+-- Dodavanje podataka u authors
+INSERT INTO authors (firstName, lastName, dob, image) VALUES
+('Marko', 'Marković', '1980-05-15', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1PxPKSZBiMuNvjdbS0TZFR8Y-d0O6wo7Shg&s'),
+('Ana', 'Anić', '2024-10-16', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1PxPKSZBiMuNvjdbS0TZFR8Y-d0O6wo7Shg&s');
+
+-- Dodavanje podataka u books
+INSERT INTO books (isbn, title, pages, published, image) VALUES
+('3453234560123', 'Prva Knjiga', 300, 2020, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1PxPKSZBiMuNvjdbS0TZFR8Y-d0O6wo7Shg&s'),
+('3453234560127', 'Druga Knjiga', 250, 2021, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1PxPKSZBiMuNvjdbS0TZFR8Y-d0O6wo7Shg&s');
+
+-- Dodavanje podataka u books_authors
+INSERT INTO books_authors (book_id, author_id) VALUES
+(1, 1),
+(2,2)
