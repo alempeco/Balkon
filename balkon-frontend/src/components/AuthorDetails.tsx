@@ -19,8 +19,8 @@ const AuthorDetails: React.FC = () => {
 
             try {
                 const data = await getAuthorDetails(id); // API vraća { author, books }
-                setAuthor(data.author); // Postavi autor deo u stanje
-                setBooks(data.books); // Postavi knjige u posebno stanje
+                setAuthor(data.author); 
+                setBooks(data.books); 
             } catch (err) {
                 setError('Greška pri učitavanju detalja autora');
             } finally {

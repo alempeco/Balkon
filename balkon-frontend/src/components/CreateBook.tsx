@@ -24,7 +24,7 @@ const CreateBook: React.FC = () => {
     useEffect(() => {
         const fetchAuthors = async () => {
             try {
-                const authorsData = await getAuthors(); // Koristi getAuthors
+                const authorsData = await getAuthors(); // Koristim getAuthors
                 setAuthors(authorsData.map((author: { id: number; firstName: string; lastName: string }) => ({
                     value: author.id,
                     label: `${author.firstName} ${author.lastName}`

@@ -1,6 +1,5 @@
 import axios from 'axios';
-import { AxiosError } from 'axios'; // Uvezi AxiosError
-
+import { AxiosError } from 'axios'; 
 
 const API_URL = 'http://localhost:3000';
 
@@ -16,7 +15,6 @@ export const getAuthors = async () => {
 export const getBookDetails = async (id: string) => {
     const response = await axios.get(`${API_URL}/books/${id}`);
     return response.data;
-    console.log(response.data);
   };
   export const getAuthorDetails = async (id: string) => {
     const response = await axios.get(`${API_URL}/authors/${id}`);
@@ -26,13 +24,12 @@ export const getBookDetails = async (id: string) => {
 export const getAuthorsForBook = async (bookId: number) => {
     try {
         const response = await axios.get(`${API_URL}/books/${bookId}/authors`);
-        return response.data; // Vraća listu autora za određenu knjigu
+        return response.data;
     } catch (error: any) {
         if (error.response && error.response.status === 404) {
             // Ako nema autora (404), vrati prazan niz i ne loguj ništa
             return [];
         } else {
-            // Za ostale greške, možeš ih logovati ako želiš
             console.error(`Error fetching authors for book ${bookId}: `, error);
             return [];
         }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getAuthorsWithBooks, deleteAuthor } from '../services/api'; // Dodajte deleteAuthor import
+import { getAuthorsWithBooks, deleteAuthor } from '../services/api';
 
 const AuthorList: React.FC = () => {
     const [authors, setAuthors] = useState<any[]>([]);
@@ -95,7 +95,7 @@ const AuthorList: React.FC = () => {
                                     Details
                                 </button>
                                 <button
-                                    onClick={() => handleEditClick(author.id)} // Dodaj ovo
+                                    onClick={() => handleEditClick(author.id)} 
                                     className="bg-yellow-500 text-white px-4 py-2 rounded"
                                 >
                                     Edit

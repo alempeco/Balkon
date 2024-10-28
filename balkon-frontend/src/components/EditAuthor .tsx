@@ -13,8 +13,7 @@ const EditAuthor: React.FC = () => {
         const fetchAuthorDetails = async () => {
             try {
                 const authorData = await getAuthorDetails(id!);
-                setAuthor(authorData.author); // Uzmite samo podatke o autoru
-                console.log(authorData);
+                setAuthor(authorData.author);
             } catch (err) {
                 setError('Greška prilikom preuzimanja podataka o autoru.');
             }
@@ -36,7 +35,7 @@ const EditAuthor: React.FC = () => {
         e.preventDefault();
 
         if (!author) return; // Proveri da li je autor učitan
-        console.log('Slanje podataka:', author); // Dodajte ovu liniju
+        
 
 
         try {
