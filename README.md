@@ -5,4 +5,7 @@
 ![Swagger Screenshot](Swagger_Screenshot.png)
 
 ![Add_books_authors](Add_books_authors.png)
+![Details_book](Details_book.png)
+
+
 
